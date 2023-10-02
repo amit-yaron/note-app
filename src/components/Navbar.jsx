@@ -1,4 +1,4 @@
-import { faRightToBracket, faMoon, faRightFromBracket, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faRightToBracket, faMoon, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import NavbarButton from './NavbarButton'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { getAuth } from 'firebase/auth'
@@ -14,7 +14,6 @@ function Navbar() {
             <h1 className="text-4xl font-black bg-gradient-to-r from-slate-600 to-gray-800 bg-clip-text text-transparent">Notes</h1>
 
             <div className='flex flex-row justify-between space-x-4'>
-                <NavbarButton icon={faPlus} title='Create Note' />
                 <NavbarButton icon={faMoon} title='Toggle Dark Mode' />
 
                 {signedIn ? <NavbarButton icon={faRightFromBracket} title='Sign Out' onClick={googleSignOut} /> :

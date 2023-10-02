@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Note(props) {
     return (
-        <div className="flex flex-col p-2 m-2 max-w-sm rounded-lg shadow-lg border-2 border-gray-400">
+        <div className="flex flex-col p-2 m-2 min-w-[12rem] rounded-lg shadow-lg border-2 border-gray-400">
             <div className="flex flex-row justify-between items-center -mt-2">
                 <h1 className="text-xl font-bold my-2">{props.title}</h1>
 
