@@ -12,7 +12,7 @@ function Note(props) {
                     <FontAwesomeIcon icon={faXmarkCircle} />
                 </div>
             </div>
-            <p className="text-base text-gray-700">{props.p}</p>n
+            <p className="text-base text-gray-700">{props.p}</p>
 
             <div className="flex flex-row flex-wrap pt-4 space-x-1">
                 {
