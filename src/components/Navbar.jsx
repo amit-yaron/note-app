@@ -1,15 +1,24 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faRightToBracket, faMoon, faRightFromBracket, faPlus } from '@fortawesome/free-solid-svg-icons'
+import NavbarButton from './NavbarButton'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { getAuth } from 'firebase/auth'
+import googleSignIn from '../scripts/googleSignIn'
+import googleSignOut from '../scripts/googleSignOut'
 
 function Navbar() {
-    return (
-        <div className="flex justify-between flex-row px-14 pt-6 wrap items-center">
-            <h1 className="text-4xl font-black bg-gradient-to-r from-slate-600 to-gray-800 bg-clip-text text-transparent">Notes App</h1>
+    const auth = getAuth()
+    const [signedIn] = useAuthState(auth)
 
-            <h1 className='text-2xl font-bold text-gray-700'>Hello, {"{name}"}</h1>
+    return (
+        <div className="flex justify-between flex-row lg:px-14 md:px-8 lg:pt-6 sm:pt-4 items-center">
+            <h1 className="text-4xl font-black bg-gradient-to-r from-slate-600 to-gray-800 bg-clip-text text-transparent">Notes</h1>
+
             <div className='flex flex-row justify-between space-x-4'>
-                <FontAwesomeIcon icon={faMoon} size='2x' className='bg-gray-200 hover:bg-gray-400 p-4 rounded-full' />
-                <FontAwesomeIcon icon={faUser} size='2x' className='bg-gray-200 hover:bg-gray-400 p-4 rounded-full' />
+                <NavbarButton icon={faPlus} title='Create Note' />
+                <NavbarButton icon={faMoon} title='Toggle Dark Mode' />
+
+                {signedIn ? <NavbarButton icon={faRightFromBracket} title='Sign Out' onClick={googleSignOut} /> :
+                    <NavbarButton icon={faRightToBracket} title='Sign In' onClick={googleSignIn} />}
             </div>
         </div>
     )
