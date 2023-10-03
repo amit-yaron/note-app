@@ -10,7 +10,8 @@ const App = () => {
     return (
         <>
             <Navbar />
-            {signedIn ? <Notes /> : <></>}
+            {signedIn ? <Notes /> :
+                <h1 className="text-center pt-12 text-3xl font-black">Sign in to use notes</h1>}
         </>
     )
 }
